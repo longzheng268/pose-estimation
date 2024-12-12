@@ -8,10 +8,17 @@ from models.hr_net import hr_w32
 
 
 use_model = 'HRNet' # 可选：Hourglass_Stack2, ResNet, HRNet
-ckpt = 'weights/HRNet_epoch2_loss0.001425.pth' # 模型文件
+ckpt = r'weights\HRNet_epoch20_loss0.000459.pth' # 模型文件
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device("cuda")
 
+
+
+#
+# 检查PyTorch是否看到GPU
+print("Num GPUs Available: ", torch.cuda.device_count())
+
+#
 if use_model == 'Hourglass_Stack2':
     model = hg_stack2().to(device)
 elif use_model == 'ResNet':

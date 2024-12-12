@@ -13,7 +13,7 @@ use_model = 'Hourglass_Stack2' # 可选：Hourglass_Stack2, ResNet, HRNet
 ckpt = 'weights/Hourglass_Stack2_epoch1_loss0.002647276851348579.pth' # 模型文件
 path_testimg = 'data/test_imgs/000402528.jpg' # 测试图片
 
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda:0')
 
 if use_model == 'Hourglass_Stack2':
     model = hg_stack2().to(device)
@@ -23,7 +23,7 @@ elif use_model == 'HRNet':
     model = hr_w32().to(device)
 else:
     raise NotImplementedError
-model.load_state_dict(torch.load(ckpt)['model'])
+model.load_state_dict(torch.load(ckpt))
 model.eval()
 
 img_np = load_image(path_testimg)
