@@ -1,0 +1,2 @@
+训练生成的权重模型文件也在此目录，Human_Pose_Detection_GUI_Application.py程序展示调用的权重文件也是在这的.pth。
+我这边训练好的weight权重文件可以在release中下载。
